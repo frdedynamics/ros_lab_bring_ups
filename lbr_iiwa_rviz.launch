@@ -1,0 +1,3 @@
+<launch>
+  <node type="rviz" name="iiwa_rviz" pkg="rviz" args="-d /home/bernard/catkin_ws/src/ros_lab_bring_ups/lbr_iiwa_rviz_config.rviz" />
+</launch>

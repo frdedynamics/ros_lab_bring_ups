@@ -1,0 +1,11 @@
+<launch>
+  <!-- Robotino-->
+  <include file="/home/bernard/catkin_ws/src/ros_lab_bring_ups/robotino_bring_up.launch" />
+
+  <!-- lbr iiwa-->
+  <include file="/home/bernard/catkin_ws/src/ros_lab_bring_ups/lbr_iiwa_bring_up.launch" />
+
+  <!-- rviz-->
+  <node type="rviz" name="robotino_rviz" pkg="rviz" args="-d /home/bernard/catkin_ws/src/ros_lab_bring_ups/robotino_iiwa_rviz_config.rviz" />
+
+</launch>
