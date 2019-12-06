@@ -1,0 +1,16 @@
+<launch>
+
+  <arg name="model" default="$(find kuka_lbr_iiwa_support)/urdf/lbr_iiwa_14_r820.urdf"/>
+
+  <param name="iiwa_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+
+
+  <node pkg="tf" type="static_transform_publisher" name="world_broadcaster" args="1.6 4.7 0 0 0 0 world iiwa/base_link 50" />
+
+  <node pkg="robot_state_publisher" type="state_publisher" name="iiwa_robot_state_publisher" >
+    <remap from="robot_description" to="iiwa_description" />
+    <remap from="joint_states" to="iiwa_joint_states" />
+    <param name="tf_prefix" value="iiwa" />
+  </node>
+
+</launch>
