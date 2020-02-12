@@ -13,4 +13,36 @@
     <param name="tf_prefix" value="iiwa" />
   </node>
 
+  <node pkg="tf" type="static_transform_publisher" name="world_desired_broadcaster" args="1.6 4.7 0 0 0 0 world iiwa_desired/base_link 50" />
+
+  <node pkg="robot_state_publisher" type="state_publisher" name="iiwa_robot_desired_state_publisher" >
+    <remap from="robot_description" to="iiwa_description" />
+    <remap from="joint_states" to="iiwa_desired_joint_path" />
+    <param name="tf_prefix" value="iiwa_desired" />
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="world_reflex_broadcaster" args="1.6 4.7 0 0 0 0 world iiwa_reflex/base_link 50" />
+
+  <node pkg="robot_state_publisher" type="state_publisher" name="iiwa_robot_reflex_state_publisher" >
+    <remap from="robot_description" to="iiwa_description" />
+    <remap from="joint_states" to="iiwa_reflex_joint_path" />
+    <param name="tf_prefix" value="iiwa_reflex" />
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="world_compliant_broadcaster" args="1.6 4.7 0 0 0 0 world iiwa_compliant/base_link 50" />
+
+  <node pkg="robot_state_publisher" type="state_publisher" name="iiwa_robot_compliant_state_publisher" >
+    <remap from="robot_description" to="iiwa_description" />
+    <remap from="joint_states" to="iiwa_compliant_joint_path" />
+    <param name="tf_prefix" value="iiwa_compliant" />
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="world_cmd_broadcaster" args="1.6 4.7 0 0 0 0 world iiwa_cmd/base_link 50" />
+
+  <node pkg="robot_state_publisher" type="state_publisher" name="iiwa_robot_cmd_state_publisher" >
+    <remap from="robot_description" to="iiwa_description" />
+    <remap from="joint_states" to="iiwa_commanded_joint_path" />
+    <param name="tf_prefix" value="iiwa_cmd" />
+  </node>
+
 </launch>
