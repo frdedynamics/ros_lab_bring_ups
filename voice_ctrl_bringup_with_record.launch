@@ -1,0 +1,14 @@
+<launch>
+    <arg name="robot_name" value="robot" />
+
+    <node name="mojo_speech_recognition" pkg="ros_voice_ctrl_pkg" type="mojo_speech_recognition.py" output="screen" args="$(arg robot_name)" />
+    <node name="mojo_speech_interpreter" pkg="ros_voice_ctrl_pkg" type="mojo_speech_interpreter.py" output="screen" args="$(arg robot_name)" />
+
+    <group ns="record">
+	<param name="path_save" type="str" value="/home/labpc/Desktop/auto_bags"	/>
+	<param name="topic" 	type="str" value=""		/>
+	<param name="file_name" type="str" value="demo1"	/>
+	<node name="record_ros" pkg="record_ros" type="record_ros" output="screen" respawn="true"/>
+    </group>
+
+</launch>
